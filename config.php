@@ -3,9 +3,9 @@ if (!defined('test')) { echo "Forbidden Request"; exit; }
 
 global $config;
 $config['db']['host'] = 'localhost';
-$config['db']['user'] = 'msnotesi';
-$config['db']['pass'] = '2V3wd7Xr3y';
-$config['db']['name'] = 'msnotesi_notes';
+$config['db']['user'] = 'DBUSER';
+$config['db']['pass'] = 'DBPASS';
+$config['db']['name'] = 'DBNAME';
 
 $config['lang'] = 'en';
 
