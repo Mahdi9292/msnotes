@@ -4,9 +4,9 @@ class View {
     extract($data);
 
     ob_start();
-    require_once("/mvc/view" . $filePath);
+    require_once(getcwd()."/mvc/view" . $filePath);
     $content = ob_get_clean();
 
-    require_once("/theme/default.php");
+    require_once(getcwd()."/theme/default.php");
   }
 }
