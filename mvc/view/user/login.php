@@ -1,7 +1,7 @@
 <?
 if (isset($_SESSION['email'])){
   $message = _already_logged_in . ' ' . $_SESSION['email'];
-  require_once('msg-success.php');
+  // require_once('msg-success.php');
   exit;
 }
 ?>

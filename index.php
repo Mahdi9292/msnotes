@@ -1,7 +1,7 @@
 <?php
 define('test', true);
 
-require_once(getcwd(). '/system/loader.php');
+require_once(getcwd(). '/system/loader.php'); //Salam Mehd
 
 $uri = getRequestUri();
 $uri = str_replace(baseUrl() . '/', '/', $uri);

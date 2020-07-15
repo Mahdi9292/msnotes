@@ -10,7 +10,7 @@ class UserController
   public function logout()
   {
     session_destroy();
-    header("Location: " . fullBaseUrl() . "/user/login");
+    header("Location: " . baseUrl() . "/user/login");
   }
 
   public function profile($p1 = null, $p2 = null, $p3 = null)
