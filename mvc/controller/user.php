@@ -13,10 +13,10 @@ class UserController
     header("Location: " . baseUrl() . "/user/login");
   }
 
-  public function profile($p1 = null, $p2 = null, $p3 = null)
+  public function profile($p1)
   {
-    echo "Profile Executed";
-    echo "$p1, $p2, $p3";
+    echo "Profile Executed: " .$p1;
+
   }
 
   public function login()
