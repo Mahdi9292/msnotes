@@ -6,7 +6,7 @@ class NoteController{
         }else{
             View::render("/note/submit.php");
         }
-        
+
     }
 
     private function submitNote(){
@@ -19,10 +19,12 @@ class NoteController{
             exit;
         }
 
-        $userId= $_SESSION['user_id'];
 
-        NoteModel::insert($title, $description, $userId);
-        
+        $userId= $_SESSION['user_id'];
+        $date = $date = date('l jS \of F Y h:i:s A');
+
+        NoteModel::insert($title, $description, $userId, $date);
+
         header("Location: /notes-v2/page/home");
         exit;
     }
@@ -53,4 +55,53 @@ class NoteController{
         ));
     }
 
+
+
+    public function catalog($pageIndex){
+        if (!isset($_SESSION['user_id'])){
+            exit;
+        }
+
+        // $isGuest = !isset($_SESSION['email']);
+        $userId = $_SESSION['user_id'];
+
+        $count = 10;
+        $startIndex = ($pageIndex - 1) * $count;
+        $data['records']= NoteModel::catalogByPage($userId, $startIndex, $count);
+        $recordsCount= NoteModel::countNotes($userId);
+        $data['pageCount']= ceil($recordsCount /10);
+        $data['pageIndex'] = $pageIndex;
+        // dump ($records);
+
+        View::render("/page/catalog.php", $data);
+    }
+
+    public function ajaxCatalog($pageIndex){
+        if (!isset($_SESSION['user_id'])){
+            exit;
+        }
+        // $isGuest = !isset($_SESSION['email']);
+        $userId = $_SESSION['user_id'];
+
+        $count = 10;
+        $startIndex = ($pageIndex - 1) * $count;
+        $data['records']= NoteModel::catalogByPage($userId, $startIndex, $count);
+        $recordsCount= NoteModel::countNotes($userId);
+        $data['pageCount']= ceil($recordsCount /10);
+        $data['pageIndex'] = $pageIndex;
+//        dump ($data['records']);
+
+        ob_start();
+        View::renderPartial("/page/ajaxCatalog.php", $data);
+//        dump($data['records']);
+        $output = ob_get_clean();
+
+        echo json_encode(array(
+            'status'=> true,
+            'html'=> $output,
+        ));
+
+    }
 }
+
+

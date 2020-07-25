@@ -1,9 +1,9 @@
 <?
 class NoteModel{
-    public static function insert($title, $description, $userId){
+    public static function insert($title, $description, $userId, $date){
         $db = Db::getInstance();
-        $db -> insert("INSERT INTO x_note (title, description, user_id, isDone) VALUES 
-                                          ('$title','$description','$userId', false)");
+        $db -> insert("INSERT INTO x_note (title, description, user_id, isDone, eventTime) VALUES 
+                                          ('$title','$description','$userId', false, '$date')");
 
     }
 
@@ -21,5 +21,17 @@ class NoteModel{
         $db = Db::getInstance();
         $records= $db-> query("SELECT * FROM x_note WHERE user_id = $userId");
         return $records;
+    }
+
+    public static function catalogByPage($userId, $startIndex, $count){
+        $db = Db::getInstance();
+        $records= $db-> query("SELECT * FROM x_note WHERE user_id = $userId LIMIT $startIndex, $count");
+        return $records;
+    }
+
+    public static function countNotes($userId){
+        $db = Db::getInstance();
+        $records= $db-> query("SELECT COUNT(*) AS total FROM x_note WHERE user_id = $userId");
+        return $records[0]['total'];
     }
 }

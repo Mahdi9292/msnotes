@@ -1,15 +1,14 @@
-
 <div id="header-wrapper">
     <div id="header-top-right">
         <? if ($isGuest){?>
         <img class="profile-image" src="<?= baseUrl() ?>/image/empty-profile-24.png">
         <span style="margin-left: 10px"> <?= _header_guest ?></span>
-        <a style="margin-left: 10px" class="btn-blue" href="<?=baseUrl()?>/user/login"> <?= _btn_login ?></a>
+        <a style="margin-left: 10px" class="btn-blue" href="<?= baseUrl() ?>/user/login"> <?= _btn_login ?></a>
 
         <? } else { ?>
 
         <img class="profile-image" src="<?= baseUrl() ?>/image/empty-profile-24.png">
-        <a style="margin-left: 10px" class="btn-blue" href="<?=baseUrl()?>/user/logout"><?= _btn_logout ?></a>
+        <a style="margin-left: 10px" class="btn-blue" href="<?= baseUrl() ?>/user/logout"><?= _btn_logout ?></a>
         <span style="margin-left: 10px"> <?= _header_welcome ?> <?= $_SESSION['email'] ?> </span>
         <? } ?>
     </div>
@@ -23,7 +22,11 @@
         <span> You must register in order to access all fetures</span>
     </div>
 
-    <? } else {?>
+    <? } else {
+    
+       
+
+    ?>
 
     <ul class="todo-entry tac">
         <li>DONE</li>
@@ -59,38 +62,35 @@
 </div>
 
 <script>
-    function noteToggle(sender,noteId){
+    function noteToggle(sender, noteId) {
         sender = $(sender);
         var parent = sender.parentsUntil('.todo-entry').parent();
         $.ajax(
-        '/notes-v2/note/toggle/' + noteId,
-        {
-          type: 'post',
-          dataType: 'json',
-          success: function(data) {
-            if (parent.hasClass('done')){
-                parent.removeClass('done');
-                parent.addClass('pending');
-            }else{
-                parent.removeClass('pending');
-                parent.addClass('done');
-            }
-          }
-        });
+            '/notes-v2/note/toggle/' + noteId, {
+                type: 'post',
+                dataType: 'json',
+                success: function(data) {
+                    if (parent.hasClass('done')) {
+                        parent.removeClass('done');
+                        parent.addClass('pending');
+                    } else {
+                        parent.removeClass('pending');
+                        parent.addClass('done');
+                    }
+                }
+            });
     }
 
-    function noteRemove(sender,noteId){
+    function noteRemove(sender, noteId) {
         sender = $(sender);
         var parent = sender.parentsUntil('.todo-entry').parent();
         $.ajax(
-        '/notes-v2/note/remove/' + noteId,
-        {
-          type: 'post',
-          dataType: 'json',
-          success: function(data) {
-            parent.remove();
-          }
-        });
+            '/notes-v2/note/remove/' + noteId, {
+                type: 'post',
+                dataType: 'json',
+                success: function(data) {
+                    parent.remove();
+                }
+            });
     }
-    
 </script>
