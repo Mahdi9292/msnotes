@@ -1,32 +1,17 @@
 
 
-<?= pagination ('/notes-v2/note/catalog', 3, 'btn btn-blue', 'btn', $pageIndex, $pageCount, 'getPage')?>
+<?= pagination ('/notes-v2/note/catalog', 3, 'btn btn-blue', 'btn', $pageIndex, $pageCount);?>
 
 <br>
 <br>
 <br>
 
 <!-- --------------------------------------- -->
-<span class="btn btn-blue" onclick="getPage(1)">1</span>
-<span>..</span>
-<? for ($i = $pageIndex - 3; $i <=$pageIndex + 3; $i++ ){
-    if ($i <= 1){continue;}
-    if ($i >= $pageCount){continue;}
-    if ($i == $pageIndex){
-        ?>
-        <span class="btn"><?=$i?></span>
+<?= pagination ('/notes-v2/note/catalog', 3, 'btn btn-blue', 'btn', $pageIndex, $pageCount, 'getPage');?>
 
-    <? }else{ ?>
-
-        <span class="btn btn-blue" onclick="getPage(<?=$i?>)" ><?=$i?></span>
-
-    <?}}?>
-<span>..</span>
-<span  class="btn btn-blue" onclick="getPage(<?= $pageCount?>)"><?=$pageCount?></span>
 <br>
 <br>
 <br>
-
 
 <div id="notes">
 
