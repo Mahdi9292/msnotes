@@ -41,6 +41,7 @@ class UserController
       if ($hashedPassword == $record['password']) {
         $_SESSION['email'] = $record['email'];
         $_SESSION['user_id'] = $record['user_id'];
+        $_SESSION['access'] = $record['access'];
         message('success', _login_welcome, true);
       } else {
         message('fail', _invalid_password, true);

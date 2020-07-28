@@ -13,4 +13,15 @@ class UserModel {
     $record = $db->first("SELECT * FROM x_user WHERE email='$email'");
     return $record;
   }
+
+  public static function promote_user($userId, $access){
+      $db = Db::getInstance();
+      $db->modify("UPDATE x_user SET access = '$access' WHERE user_id = $userId ");
+  }
+
+    public static function get_user_access($userId){
+        $db = Db::getInstance();
+        $record = $db->first("SELECT access FROM x_user WHERE user_id = $userId");
+        return $record;
+    }
 }

@@ -3,6 +3,15 @@
   padding: 0;
 }
 
+/*html {*/
+/*  background-color: #56baed;*/
+/*}*/
+
+/*body {*/
+/*  font-family: "Poppins", sans-serif;*/
+/*  height: 100vh;*/
+/*}*/
+
 html, body {
   direction: ltr;
 }
@@ -22,14 +31,17 @@ body {
   border-radius: 2px;
   font-size: 7pt;
   text-decoration: none;
-}
+  /*opacity:1!important;*/
 
-.btn:hover {
-  background-color: #f5f5f5;
-  color: #222222;
-  border: 1px solid #c6c6c6;
-  box-shadow: 0 1px 1px #ddd;
 }
+.tooltip.in{opacity:1!important;}
+
+/*.btn:hover {*/
+/*  background-color: #f5f5f5;*/
+/*  color: #222222;*/
+/*  border: 1px solid #c6c6c6;*/
+/*  box-shadow: 0 1px 1px #ddd;*/
+/*}*/
 
 .btn-blue {
   background-color: #48f;
@@ -92,7 +104,7 @@ input:focus, textarea:focus {
   background-color: #f2f2f2;
   position: fixed;
   top: 0;
-  height: 20px;
+  height: 40px;
   width: 100%;
   border: none;
   padding: 5px 5px;
@@ -108,6 +120,12 @@ input:focus, textarea:focus {
   border-radius: 100px;
   vertical-align: middle;
 }
+.login-profile-image {
+  height: 100px;
+  width: 50px;
+  border-radius: 100px;
+  vertical-align: middle;
+}
 
 .todo-entry {
   display: flex;
@@ -120,6 +138,14 @@ input:focus, textarea:focus {
 }
 
 .todo-entry.pending {
+  background-color: rgba(255, 0, 0, 0.2);
+}
+
+.todo.done {
+  background-color: rgba(0, 255, 0, 0.2);
+}
+
+.todo.pending {
   background-color: rgba(255, 0, 0, 0.2);
 }
 
