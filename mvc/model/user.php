@@ -19,9 +19,20 @@ class UserModel {
       $db->modify("UPDATE x_user SET access = '$access' WHERE user_id = $userId ");
   }
 
-    public static function get_user_access($userId){
+    public static function get_user_access_by_user_id($userId){
         $db = Db::getInstance();
         $record = $db->first("SELECT access FROM x_user WHERE user_id = $userId");
+        return $record;
+    }
+
+    public static function promote_user_by_email($email, $access){
+        $db = Db::getInstance();
+        $db->modify("UPDATE x_user SET access = '$access' WHERE email = '$email' ");
+    }
+
+    public static function get_user_access_by_email($email){
+        $db = Db::getInstance();
+        $record = $db->first("SELECT access FROM x_user WHERE email = '$email'");
         return $record;
     }
 }

@@ -46,7 +46,7 @@ if (isset($_SESSION['email'])){
         <form action="<?=baseUrl()?>/user/login" method="post">
             <input type="text" id="email" class="fadeIn second" name="email" placeholder="<?=_ph_email?>" >
             <input type="password" id="password" class="fadeIn third" name="password" placeholder="<?=_ph_password?>">
-            <input type="submit" class="fadeIn fourth" value="<?=_btn_login?>">
+            <input type="submit" class="fadeIn fourth btn btn-primary" value="<?=_btn_login?>">
         </form>
 
         <!-- Remind Passowrd -->
