@@ -15,4 +15,10 @@ class PageController
     $data['isGuest'] = $isGuest;
     View::render("/page/home.php", $data);
   }
+
+  public function adminPage(){
+      grantAdmin();
+      $data['records'] = UserModel::fetch_all_users();
+      View::render("/page/admin_page.php", $data);
+  }
 }

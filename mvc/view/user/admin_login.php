@@ -13,7 +13,7 @@ if (isset($_SESSION['email'])){
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Login</title>
+    <title>Admin Login</title>
     <title>Document</title>
 
 
@@ -36,24 +36,23 @@ if (isset($_SESSION['email'])){
 <div class="wrapper fadeInDown">
     <div id="formContent">
         <!-- Tabs Titles -->
-
-        <!-- Icon -->
-        <div class="fadeIn first">
-            <img style="height: 1.5in; width: 1.5in" class="profile-image" src="<?=baseUrl()?>/image/empty-profile-128.png" id="icon" alt="User Icon" />
+        <div>
+            <span>
+                <h4 style="background-color: #333333; color: #dce8f1"> Hello Dear Admin</h4>
+            </span>
         </div>
 
         <!-- Login Form -->
-        <form action="<?=baseUrl()?>/user/login" method="post">
+        <form action="<?=baseUrl()?>/user/adminLogin" method="post">
             <input type="text" id="email" class="fadeIn second" name="email" placeholder="<?=_ph_email?>" >
             <input type="password" id="password" class="fadeIn third" name="password" placeholder="<?=_ph_password?>">
-            <input type="submit" class="fadeIn fourth btn btn-primary" value="<?=_btn_login?>">
+            <input type="submit" class="fadeIn fourth btn btn-dark" value="<?=_btn_login?>">
         </form>
-        <a style="text-decoration: none; margin-bottom:15px " href="<?=baseUrl()?>/user/adminLogin" role="button" class="btn btn-outline-dark"> Admin </a>
 
         <!-- Remind Passowrd -->
         <div id="formFooter">
-            <a href="<?=baseUrl()?>/user/register" ><button class="btn btn-outline-dark"><?=_btn_signup?></button></a>
-            <a style="text-decoration: none" class="underlineHover" href="#">Forgot Password?</a>
+            <a style="text-decoration: none" class="underlineHover" href="#">Forgot Password?</a>&nbsp;&nbsp;&nbsp;&nbsp;
+            <a style="text-decoration: none" class="underlineHover" href="<?=baseUrl()?>/user/login">Back to user login</a>
 
         </div>
 

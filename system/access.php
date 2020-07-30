@@ -108,6 +108,7 @@ function grantSuperAdmin()
 function grantAdmin(){
     if (!isAdmin()){
         echo "Forbidden";
+        message('fail', _admin_login_fail, true);
         exit;
     }
 }

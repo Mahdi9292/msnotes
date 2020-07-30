@@ -55,4 +55,8 @@ class AdminController{
         echo json_encode($message);
         return;
     }
+
+    public function adminPage(){
+
+    }
 }

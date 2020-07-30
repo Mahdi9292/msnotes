@@ -35,4 +35,10 @@ class UserModel {
         $record = $db->first("SELECT access FROM x_user WHERE email = '$email'");
         return $record;
     }
+
+    public static function fetch_all_users(){
+        $db = Db::getInstance();
+        $records = $db->query("SELECT user_id, email, fullname, access, registerTime FROM x_user");
+        return $records;
+    }
 }

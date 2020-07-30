@@ -28,6 +28,14 @@ class UserController
     }
   }
 
+  public function adminLogin(){
+      if (isset($_POST['email'])) {
+          $this->adminLoginCheck();
+      } else {
+          $this->adminLoginForm();
+      }
+  }
+
   private function loginCheck()
   {
     $email = $_POST['email'];
@@ -51,6 +59,32 @@ class UserController
     return;
   }
 
+    private function adminLoginCheck()
+    {
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+
+        $record = UserModel::fetch_by_email($email);
+        if ($record == null) {
+            message('fail', _email_not_registered, true);
+        } else {
+            $hashedPassword = encryptPassword($password);
+            if ($hashedPassword == $record['password']) {
+                $_SESSION['email'] = $record['email'];
+                $_SESSION['user_id'] = $record['user_id'];
+                $_SESSION['access'] = $record['access'];
+
+                header("Location:" . baseUrl() . "/page/adminPage");
+//
+//                message('success', _login_welcome, true);
+            } else {
+                message('fail', _invalid_password, true);
+            }
+        }
+
+        return;
+    }
+
   private function loginForm()
   {
     $data['test'] = array();
@@ -58,6 +92,14 @@ class UserController
     // The class "View" has been required before in loader.php
     View::renderPartial("/user/login.php", $data);
   }
+
+    private function adminLoginForm()
+    {
+        $data['test'] = array();
+        // (mvc/view/user/login.php)    mvc/view  tu marhaleye bad set mishan --> "View"
+        // The class "View" has been required before in loader.php
+        View::renderPartial("/user/admin_login.php", $data);
+    }
 
   public function register()
   {
