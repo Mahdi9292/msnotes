@@ -34,8 +34,12 @@ function get_access_name(){
     }
 
 
+    $accessName = substr($accessName, 1, strlen($accessName));
     return $accessName;
 }
+
+
+
 
 function isAdmin(){
     if (isGuest()){return false;}

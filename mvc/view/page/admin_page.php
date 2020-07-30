@@ -3,9 +3,9 @@
 
             <img class="profile-image" src="<?= baseUrl() ?>/image/empty-profile-24.png">
             <a style="margin-left: 10px" class="btn btn-primary btn-sm" href="<?= baseUrl() ?>/user/logout"><?= _btn_logout ?></a>
-            <span style="margin-left: 10px"> <?= _header_welcome ?> <?= $_SESSION['email'] ?> </span>
+            <span style="margin-left: 10px"> Welcome dear Admin &nbsp;&nbsp; <b>Your Email:</b> <?= $_SESSION['email'] ?> </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <!--    Access Part        -->
-            <span style="margin-left: 10px"><?= get_access_name()?></span>
+        <span style="margin-left: 10px"><b>Your access level/s: </b><?= get_access_name()?></span>
 
 
     </div>
@@ -24,6 +24,7 @@
             <th>Full Name</th>
             <th>Access Level/s</th>
             <th>Register Time</th>
+            <th>Edit Access</th>
             <!--            <th>Addresse</th>-->
             <!--            <th>Kategorie</th>-->
         </tr>
@@ -45,8 +46,9 @@
                 <td><?= $record['fullname'] ?></td>
                 <td><?= $access ?></td>
                 <td><?= $record['registerTime'] ?></td>
-
+                <td>Edit</td>
             </tr>
+
         <? } ?>
 
         </tbody>

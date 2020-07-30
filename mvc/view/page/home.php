@@ -8,9 +8,14 @@
         <? } else { ?>
             <img class="profile-image" src="<?= baseUrl() ?>/image/empty-profile-24.png">
             <a style="margin-left: 10px" class="btn btn-primary btn-sm" href="<?= baseUrl() ?>/user/logout"><?= _btn_logout ?></a>
-            <span style="margin-left: 10px"> <?= _header_welcome ?> <?= $_SESSION['email'] ?> </span>
-            <!--    Access Part        -->
-            <span style="margin-left: 10px"><?= get_access_name()?></span>
+
+            <!--      Welcome Part      -->
+            <span style="margin-left: 10px">
+                <? if (isset($_SESSION['nickname'])){echo "Welcome Dear &nbsp;" . $_SESSION['nickname'];}
+                else {echo _header_welcome ."&nbsp;". $_SESSION['email'];} ?>
+            </span>
+            <!--    Access Name Part        -->
+            <span style="margin-left: 40px"><i>You are <?= get_access_name()?></i></span>
 
         <? } ?>
     </div>

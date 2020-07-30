@@ -54,4 +54,3 @@
     <div class="tar">
         <a class="btn btn-blue tooltip.in" href="/notes-v2/note/submit">Insert</a>
     </div>
-</div>
