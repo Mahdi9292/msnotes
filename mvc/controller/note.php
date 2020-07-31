@@ -1,11 +1,18 @@
 <?
 class NoteController{
+
     public function submit(){
         if (isset($_POST['title'])){
             $this->submitNote();
         }else{
             View::render("/note/submit.php");
         }
+
+//        if (isset($title) && $title != null){
+//            $this->submitNote($title, $description);
+//        }else{
+//            View::render("/note/submit.php");
+//        }
 
     }
 
@@ -25,8 +32,16 @@ class NoteController{
 
         NoteModel::insert($title, $description, $userId, $date);
 
+//        echo json_encode(array(
+//            'title'=> $title,
+//            'description'=> $description,
+//            'date'=> $date,
+//            'user_id'=>$userId,
+//        ));
+
         header("Location: /notes-v2/page/home");
         exit;
+
     }
 
     public function remove($noteId){

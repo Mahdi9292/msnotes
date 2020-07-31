@@ -30,4 +30,9 @@ class TestController{
       public function convertDate ($date, $format = 'y-M-d'){
           echo jdate($date, $format);
       }
+
+      # A simple comment function
+      public function comment(){
+        View::render("/test.php");
+      }
 }
