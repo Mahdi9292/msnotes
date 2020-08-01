@@ -1,25 +1,26 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="<?=baseUrl()?>/css/base.css?<?php echo date('l jS \of F Y h:i:s A'); ?>">
-    <link rel="stylesheet" href="<?=baseUrl()?>/css/base2.css?<?php echo date('l jS \of F Y h:i:s A'); ?>">
-    <link rel="stylesheet" href="<?=baseUrl()?>/css/style.css?<?php echo date('l jS \of F Y h:i:s A'); ?>">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login</title>
+    <title>Document</title>
 
-    <script type="text/javascript" src="<?=baseUrl()?>/js/jquery-1.11.3.min.js"></script>
-    <script type="text/javascript" src="<?=baseUrl()?>/js/common.js"></script>
+
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+    <script type="text/javascript" src="<?=baseUrl()?>/js/jquery-1.11.3.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+    <link href="/notes-v2/css/base2.css" rel="stylesheet">
+    <link href="/notes-v2/css/base.css" rel="stylesheet">
+    <link href="/notes-v2/css/style.css" rel="stylesheet">
+    <!--    <link href="/notes-v2/vendor/twbs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">-->
+    <!--    <script src="/notes-v2/vendor/twbs/bootstrap/dist/js/bootstrap.min.js"></script>-->
+    <!--    <script src="/notes-v2/vendor/twbs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>-->
+    <!--    <script type="text/javascript" src="/notes-v2/js/jquery-1.11.3.min.js"></script>-->
+    <!--    <script src="/notes-v2/vendor/twbs/bootstrap/js/dist/"></script>-->
 
-    <style type="text/css">
-        .brand{
-            background: #cbb09c !important;
-        }
-        .brand-text{
-            color: #cbb09c !important;
-        }
-
-    </style>
 </head>
 
 
