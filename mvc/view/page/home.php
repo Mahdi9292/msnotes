@@ -1,26 +1,67 @@
-<div id="header-wrapper">
-    <div id="header-top-right">
-        <? if ($isGuest){?>
-            <img class="profile-image" src="<?= baseUrl() ?>/image/empty-profile-24.png">
-            <span style="margin-left: 10px"> <?= _header_guest ?></span>
-            <a style="margin-left: 10px" class="btn btn-primary btn-sm" href="<?= baseUrl() ?>/user/login"> <?= _btn_login ?></a>
-            <span><?= get_access_name()?></span>
-        <? } else { ?>
-            <img class="profile-image" src="<?= baseUrl() ?>/image/empty-profile-24.png">
-            <a style="margin-left: 10px" class="btn btn-primary btn-sm" href="<?= baseUrl() ?>/user/logout"><?= _btn_logout ?></a>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="#">MSNotes</a>
 
-            <!--      Welcome Part      -->
-            <span style="margin-left: 10px">
-                <? if (isset($_SESSION['nickname'])){echo "Welcome Dear &nbsp;" . $_SESSION['nickname'];}
-                else {echo _header_welcome ."&nbsp;". $_SESSION['email'];} ?>
-            </span>
-            <!--    Access Name Part        -->
-            <span style="margin-left: 40px"><i>You are <?= get_access_name()?></i></span>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+        <? if ($isGuest){?>
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item">
+                    <img class="nav-link profile-image" src="<?= baseUrl() ?>/image/empty-profile-24.png">
+                </li>
+                <li class="nav-item">
+                    <span class="nav-link disabled"> <?= _header_guest ?></span>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?= baseUrl() ?>/user/login"><?= _btn_login ?></a>
+                </li>
+                <li class="nav-item">
+                    <span class="nav-link"><?= get_access_name()?></span>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+            </form>
+
+        <? } else { ?>
+
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item">
+                    <img class="nav-link profile-image" src="<?= baseUrl() ?>/image/empty-profile-24.png">
+                </li>
+                <li class="nav-item">
+                <span class="nav-link disabled"> <? if (isset($_SESSION['nickname'])){echo "Welcome Dear &nbsp;" . $_SESSION['nickname'];}
+                    else {echo _header_welcome ."&nbsp;". $_SESSION['email'];} ?></span>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?= baseUrl() ?>/user/logout"><?= _btn_logout ?></a>
+                </li>
+                <li class="nav-item">
+                    <span class="nav-link"><?= get_access_name()?></span>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Search</button>
+            </form>
 
         <? } ?>
     </div>
-</div>
+</nav>
 
+
+<!-- BOOTSTRAP HEADER -->
+<!-- From Here -->
+
+<!-- To here -->
 <? if ($isGuest){?>
     <div id="content" class="row">
         <div id="content" class="tac lf important-color m15">

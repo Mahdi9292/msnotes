@@ -8,7 +8,7 @@ define('_weak_password', "Password is weak");
 define('_password_not_match', "Passwords not match");
 define('_successfully_registered', 'You are successfully registered. Please" . <a href="' . baseUrl() . '/user/login">login </a>');
 define('_header_welcome', "Welcome dear");
-define('_header_guest', "Hello guest user");
+define('_header_guest', "Hello guest");
 
 define('_admin_login_fail', 'You are not an Admin, Please <a href="' . baseUrl() . '/user/login"> login as User </a>');
 
