@@ -1,14 +1,14 @@
-* {
+/* * {
   font-family: tahoma;
-}
+} */
 
-.tac { text-align: center; }
+/* .tac { text-align: center; }
 .tal { text-align: left; }
 .tar { text-align: right; }
 .ltr { direction: ltr; }
 
 .lf { font-size: 14px; }
-.important-color { color: #f40; }
+.important-color { color: #f40; } */
 
 .m5 { margin: 5px; }
 .m10 { margin: 10px; }

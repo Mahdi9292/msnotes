@@ -1,24 +1,24 @@
 <?
 class NoteController{
 
-    public function submit(){
-        if (isset($_POST['title'])){
-            $this->submitNote();
-        }else{
-            View::render("/note/submit.php");
-        }
+    public function submit($title, $description){
+        // if (isset($_POST['title'])){
+        //     $this->submitNote();
+        // }else{
+        //     View::render("/note/submit.php");
+        // }
 
-//        if (isset($title) && $title != null){
-//            $this->submitNote($title, $description);
-//        }else{
-//            View::render("/note/submit.php");
-//        }
+       if (isset($title) && $title != null){
+           $this->submitNote($title, $description);
+       }else{
+           View::render("/note/submit.php");
+       }
 
     }
 
-    private function submitNote(){
-        $title = $_POST['title'];
-        $description=  $_POST['description'];
+    private function submitNote($title, $description){
+        // $title = $_POST['title'];
+        // $description=  $_POST['description'];
 
 
         if (!isset($_SESSION['user_id'])){
@@ -31,16 +31,14 @@ class NoteController{
         $date = $date = date('l jS \of F Y h:i:s A');
 
         NoteModel::insert($title, $description, $userId, $date);
+        $records= NoteModel::getNoteID($userId);
+        $noteId = $records['note_id'];
+        echo json_encode(array(
+            'noteId' => $noteId,
+        ));
 
-//        echo json_encode(array(
-//            'title'=> $title,
-//            'description'=> $description,
-//            'date'=> $date,
-//            'user_id'=>$userId,
-//        ));
-
-        header("Location: /notes-v2/page/home");
-        exit;
+        // header("Location: /notes-v2/page/home");
+        // exit;
 
     }
 

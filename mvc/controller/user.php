@@ -101,7 +101,7 @@ class UserController
         $data['test'] = array();
         // (mvc/view/user/login.php)    mvc/view  tu marhaleye bad set mishan --> "View"
         // The class "View" has been required before in loader.php
-        View::renderPartial("/user/admin_login.php", $data);
+        View::render("/user/admin_login.php", $data);
     }
 
   public function register()

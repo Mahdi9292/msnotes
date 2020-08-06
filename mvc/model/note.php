@@ -34,4 +34,11 @@ class NoteModel{
         $records= $db-> query("SELECT COUNT(*) AS total FROM x_note WHERE user_id = $userId");
         return $records[0]['total'];
     }
+
+
+    public static function getNoteID($userId){
+        $db = Db::getInstance();
+        $records = $db-> query("SELECT note_id FROM x_note WHERE user_id = $userId ORDER BY note_id DESC LIMIT 1");
+        return $records[0];
+    }
 }

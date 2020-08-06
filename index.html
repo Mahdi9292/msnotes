@@ -1,36 +1,380 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>MSNOTES</title>
-  <meta charset="UTF-8">
-  <!-- <link rel="stylesheet" href="base.css"> -->
-  <!-- <link rel="stylesheet" href="style.css"> -->
-  <!-- <script type="text/javascript" src="<?=baseUrl()?>/js/jquery-1.11.3.min.js"></script> -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MSNotes</title>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+    <!-- <link rel="stylesheet" href="/notes-v2/css/bootstrap.min.css" type="text/css"> -->
+    <link rel="stylesheet" href="/notes-v2/css/bootstrap.min_sandstone.css" type="text/css">
+    <!-- <link rel="stylesheet" href="/notes-v2/css/bootstrap.min_yeti.css" type="text/css"> -->
     <style>
-        #header-wrapper {
-            position: fixed;
-            top: 0;
-            height: 20px;
-            width: 100%;
-            border: none;
-            /* padding: 5px 5px; */
+        .thumb {padding: 60px 10px; text-align: center; background: #ddd;}
+        .thumb:nth-child(even){background: #eee;}
+        /* .container-fluid, .container {margin: 10px auto; padding: 10px;} */
+
+        .jumbotron {
+            background-image: url("/notes-v2/image/jumbotron.jpg");
+            /* opacity: 0.7; */
+            /* background-color: #17234E; */
+            /* margin-bottom: 0; */
+            min-height: 50%;
+            background-repeat: no-repeat;
+            background-position: center;
+            -webkit-background-size: cover;
+            background-size: cover;
         }
 
-        .inline{
-            display: inline;
+        img{
+            min-width: 100%;
+            max-height: 600px;
         }
 
-        #content {
-            padding: 10px;
-            max-width: 800px;
-            margin: 0 auto;
-            margin-top: 150px;
-        }
     </style>
+
+
 </head>
 <body>
-<div id="header-wrapper">
-  <div id="header"><img src="banner.png" height="80px" width="50%" alt="header"><h1 class="inline">Welcome to MSNotes</h1></div>
+<!--/// Header of the page -->
+<nav class="navbar navbar-default navbar-fixed-top">
+
+    <div class="container">
+
+        <div class="navbar-header">
+            <a href="#" class="navbar-brand">MSNotes</a>
+            <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mydropdown">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+
+        <div class="collapse navbar-collapse" id="mydropdown">
+            <ul class="nav navbar-nav">
+                <li><a href="#">Ninja</a></li>
+                <li class="active"><a href="#">Contact</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Home</a></li>
+            </ul>
+            <button class="btn btn-secondary navbar-btn" ><a style="text-decoration: none" href="/notes-v2/user/login">To your notes1</a></button>
+            <button class="btn btn-default navbar-btn btn-sm navbar-right" style="margin-left: 10px;" >Inbox <span class="label label-danger">New</span></button>
+            <button class="btn btn-default navbar-btn btn-sm navbar-right" >Notifications <span class="badge" style="background-color: #d9534f;">20</span></button>
+        </div>
+    </div>  <!-- End of header container-->
+
+</nav>
+
+
+<script>
+    $(".nav li").on("click", function(){
+        $(".nav li").removeClass("active");
+        $(this).addClass("active");
+    })
+</script>
+
+
+<!-- Carousels -->
+
+<div class="carousel slide" id="myslider" data-ride= "carousel" style="margin-top: 60px;">  <!-- dats ride must be defined for starting the slide-->
+    <ol class="carousel-indicators"> <!-- are thoese small circles in the buttom of the slides-->
+        <li data-target="#myslider" data-slide-to="0" class="active"></li> <!-- "0" is the first Item-->
+        <li data-target="#myslider" data-slide-to="1"></li>
+        <li data-target="#myslider" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+        <div class="item active"> <!-- One item should be active for starting the slide-->
+            <img src="/notes-v2/image/cyber.jpg" alt="">
+            <div class="carousel-caption hidden-xs">
+                <h2>Yo, let's code better !</h2>
+            </div>
+        </div>
+        <div class="item">
+            <img src="/notes-v2/image/ai.jpg" alt="">
+            <div class="carousel-caption hidden-xs">
+                <h2>Yo, let's code better !</h2>
+            </div>
+        </div>
+        <div class="item">
+            <img src="/notes-v2/image/science.jpg" alt="">
+            <div class="carousel-caption hidden-xs">
+                <h2>Yo, let's code better !</h2>
+            </div>
+        </div>
+    </div>
+
+    <a class="right carousel-control" href="#myslider" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+    </a>
+
+    <a class="left carousel-control" href="#myslider" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+    </a>
 </div>
-<div id="content"><h2>This website is to be developed; Please set your notes <a href="./notes-v2/user/login">Here</a> </h2></div>
+
+
+
+<!-- Jumbotron -->
+<div class="jumbotron" style="margin-top: 4px;">
+    <div class="container" style="color: white;">
+        <h1><strong>AWESOME LEARNING</strong></h1>
+        <p> <strong>
+            MSNotes was founded to make the world a better place.
+            For those who believe in themselves and believe in their abilities.
+            <span class="hidden-xs">For those with high IQ and those who believe in having high IQ.</span>
+        </strong>
+        </p>
+    </div>
+</div>
+<!-- End Jumbotron -->
+
+
+
+<div class="container" style="padding-top: 40px; padding-bottom: 30px;">
+
+    <!-- Accordian -->
+    <div class="panel-group" id="myaccordian">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title" data-target="#panel-1" data-toggle="collapse" data-parent="#myaccordian"> High resolution training</h3>
+            </div>
+            <div class="panel-collapse collapse" id="panel-1">
+                <div class="panel-body">
+                    <p>Are sentiments apartments decisively the especially alteration.
+                        Thrown shy denote ten ladies though ask saw. Or by to he going think order event music.
+                        Incommode so intention defective at convinced.
+                    </p>
+                    <p>Are sentiments apartments decisively the especially alteration.
+                        Thrown shy denote ten ladies though ask saw. Or by to he going think order event music.
+                        Incommode so intention defective at convinced.
+                    </p>
+                    <p>Are sentiments apartments decisively the especially alteration.
+                        Thrown shy denote ten ladies though ask saw. Or by to he going think order event music.
+                        Incommode so intention defective at convinced.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title" data-target="#panel-2" data-toggle="collapse"data-parent="#myaccordian"> High resolution training</h3>
+            </div>
+            <div class="panel-collapse collapse" id="panel-2">
+                <div class="panel-body">
+                    <p>Are sentiments apartments decisively the especially alteration.
+                        Thrown shy denote ten ladies though ask saw. Or by to he going think order event music.
+                        Incommode so intention defective at convinced.
+                    </p>
+                    <p>Are sentiments apartments decisively the especially alteration.
+                        Thrown shy denote ten ladies though ask saw. Or by to he going think order event music.
+                        Incommode so intention defective at convinced.
+                    </p>
+                    <p>Are sentiments apartments decisively the especially alteration.
+                        Thrown shy denote ten ladies though ask saw. Or by to he going think order event music.
+                        Incommode so intention defective at convinced.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title" data-target="#panel-3" data-toggle="collapse" data-parent="#myaccordian"> High resolution training</h3>
+            </div>
+            <div class="panel-collapse collapse" id="panel-3">
+                <div class="panel-body">
+                    <p>Are sentiments apartments decisively the especially alteration.
+                        Thrown shy denote ten ladies though ask saw. Or by to he going think order event music.
+                        Incommode so intention defective at convinced.
+                    </p>
+                    <p>Are sentiments apartments decisively the especially alteration.
+                        Thrown shy denote ten ladies though ask saw. Or by to he going think order event music.
+                        Incommode so intention defective at convinced.
+                    </p>
+                    <p>Are sentiments apartments decisively the especially alteration.
+                        Thrown shy denote ten ladies though ask saw. Or by to he going think order event music.
+                        Incommode so intention defective at convinced.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- End Accordian -->
+
+
+
+    <!-- Without Pannel -->
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-6 " style="box-shadow: 2px 2px 3px gray">
+            <h1>Market1</h1>
+            <p>Are sentiments apartments decisively the especially alteration.
+                Thrown shy denote ten ladies though ask saw. Or by to he going think order event music.
+                Incommode so intention defective at convinced. Led income months itself and houses you.
+                After nor you leave might share court balls. </p>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-6" style="box-shadow: 2px 2px 3px gray">
+            <h1>Market1</h1>
+            <p>Are sentiments apartments decisively the especially alteration.
+                Thrown shy denote ten ladies though ask saw. Or by to he going think order event music.
+                Incommode so intention defective at convinced. Led income months itself and houses you.
+                After nor you leave might share court balls. </p>
+        </div>
+    </div>
+
+    <!-- With Pannel -->
+    <div class="row" style="margin-top: 20px;">
+        <div class="col-xs-12 col-sm-3">
+            <div class="panel panel-default "> <!--we can change the default to primary or ...-->
+                <div class="panel-heading" style="background-color: #3e3f3a; color: white;">
+                    <h1 class="panel-title">Market1</h1>
+                </div>
+                <div class="panel-body" style="background-color: #3e3f3a; color: white;">
+                    <p>Are sentiments apartments decisively the especially alteration.
+                        Thrown shy denote ten ladies though ask saw. Or by to he going think order event music.
+                        Incommode so intention defective at convinced. Led income months itself and houses you.
+                        After nor you leave might share court balls. </p>
+                </div>
+                <div class="panel-footer" style="background-color: #212121; color: white;">
+                    <a href="#">More info...</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-3">
+            <div class="panel panel-default"> <!--we can change the default to primary or ...-->
+                <div class="panel-heading" style="background-color: #3e3f3a; color: white;">
+                    <h1 class="panel-title">Market1</h1>
+                </div>
+                <div class="panel-body" style="background-color: #3e3f3a; color: white;">
+                    <p>Are sentiments apartments decisively the especially alteration.
+                        Thrown shy denote ten ladies though ask saw. Or by to he going think order event music.
+                        Incommode so intention defective at convinced. Led income months itself and houses you.
+                        After nor you leave might share court balls. </p>
+                </div>
+                <div class="panel-footer" style="background-color: #212121; color: white;">
+                    <a href="#">More info...</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-3">
+            <div class="panel panel-default"> <!--we can change the default to primary or ...-->
+                <div class="panel-heading" style="background-color: #3e3f3a; color: white;">
+                    <h1 class="panel-title">Market1</h1>
+                </div>
+                <div class="panel-body" style="background-color: #3e3f3a; color: white;">
+                    <p>Are sentiments apartments decisively the especially alteration.
+                        Thrown shy denote ten ladies though ask saw. Or by to he going think order event music.
+                        Incommode so intention defective at convinced. Led income months itself and houses you.
+                        After nor you leave might share court balls. </p>
+                </div>
+                <div class="panel-footer" style="background-color: #212121; color: white;">
+                    <a href="#">More info...</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-3">
+            <div class="panel panel-default"> <!--we can change the default to primary or ...-->
+                <div class="panel-heading" style="background-color: #3e3f3a; color: white;">
+                    <h1 class="panel-title">Market1</h1>
+                </div>
+                <div class="panel-body" style="background-color: #3e3f3a; color: white;">
+                    <p>Are sentiments apartments decisively the especially alteration.
+                        Thrown shy denote ten ladies though ask saw. Or by to he going think order event music.
+                        Incommode so intention defective at convinced. Led income months itself and houses you.
+                        After nor you leave might share court balls. </p>
+                </div>
+                <div class="panel-footer" style="background-color: #212121; color: white;">
+                    <a href="#">More info...</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!--/// Buttom of the page -->
+    <div class="row">
+        <div class="col-xs-12 col-sm-6">
+            <h2>Get in Touch</h2>
+            <p>Are sentiments apartments decisively the especially alteration.
+                Thrown shy denote ten ladies though ask saw. Or by to he going think order event music.
+                Incommode so intention defective at convinced. Led income months itself and houses you.
+                After nor you leave might share court balls. </p>
+            <p>Are sentiments apartments decisively the especially alteration.
+                Thrown shy denote ten ladies though ask saw. Or by to he going think order event music.
+                Incommode so intention defective at convinced. Led income months itself and houses you.
+                After nor you leave might share court balls. </p>
+        </div>
+
+        <div class="col-xs-12 col-sm-6">
+            <h2>Share us !</h2>
+            <form action="#">
+                <div class="form-group">
+                    <label for="name" class="sr-only">Name</label>
+                    <input class="form-control" type="text" id="name" placeholder="Name" />
+                </div>
+
+                <div class="form-group">
+                    <label for="name" class="sr-only">Email</label>
+                    <input class="form-control" type="text" id="emamil" placeholder="Email" />
+                </div>
+
+                <div class="form-group">
+                    <label class="checkbox-inline" >
+                        <input type="checkbox" />
+                        Beginner
+                    </label>
+
+                    <label class="checkbox-inline">
+                        <input type="checkbox"  />
+                        Intermediate
+                    </label>
+                </div>
+
+                <div class="form-group">
+                    <label class="radio-inline">
+                        <input type="radio" name="gender" />
+                        Male
+                    </label>
+
+                    <label class="radio-inline">
+                        <input type="radio" name="gender"  />
+                        Female
+                    </label>
+                </div>
+
+                <input type="submit" class="btn btn-primary btn-sm" value="Send">
+            </form>
+        </div>
+    </div>
+</div>
+
+<!--/// DESIGNER SIGNITURE -->
+<div id="Signiture" class="row" style="float: right; margin: 10px;">
+    <div class="col-12-xs col-12-sm">
+        <span >©<i> Designed by Mahdi Shaker</i></span>
+    </div>
+</div>
+
+
+<script>
+    $(function(){
+        $('.carousel').carousel({
+            interval : 3000,       // if set --> defines the slider speed
+            pause : false,        // if false --> slider will not pause
+            wrap : true,         // if false --> slider will stop after getting to last slide
+            keyboard : true     // if true --> slider will be accessed by keyboard nav
+        });
+    });
+</script>
 </body>
 </html>

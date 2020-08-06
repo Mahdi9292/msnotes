@@ -35,4 +35,14 @@ class TestController{
       public function comment(){
         View::render("/test.php");
       }
+
+      public function noteid(){
+        $records = array();
+        $records= NoteModel::getNoteID(10);
+        dump ($records);
+        echo $records['note_id'];
+        // echo json_encode(array(
+        //     "noteId" => $records['note_id'],
+        // ));
+      }
 }
