@@ -28,13 +28,14 @@ class NoteController{
 
 
         $userId= $_SESSION['user_id'];
-        $date = $date = date('l jS \of F Y h:i:s A');
+        $date = date('F j, Y, g:i a');
 
         NoteModel::insert($title, $description, $userId, $date);
         $records= NoteModel::getNoteID($userId);
         $noteId = $records['note_id'];
         echo json_encode(array(
             'noteId' => $noteId,
+            'date' => $date,
         ));
 
         // header("Location: /notes-v2/page/home");

@@ -126,7 +126,7 @@
                 <a class="btn btn-dark btn-sm" href="/notes-v2/note/submit">Insert</a>
             </div> -->
             <div class="row col-lg-6" style="padding: 20px">
-                <button class="btn btn-primary" type="button" id="commentButton">Add another Note</button><br>
+                <button class="btn btn-primary" type="button" id="commentButton">Add New</button><br>
                 <div style="display: none " id="commentForm" class="col-lg-12 border border-secondary rounded p10 m10t">
                     <div class="form-group">
                         <label for="title">Title</label><br>
@@ -148,6 +148,7 @@
 
 <!-- Script-->
 <script>
+
     $(document).ready(function() {
         $("#commentButton").click(function() {
             $("#commentForm").toggle();
@@ -215,4 +216,15 @@
                 }
             });
     }
+
+
+    var button = document.getElementById("commentButton");
+    button.onclick = function () {
+        if (button.innerHTML === "Dismiss"){
+            button.innerHTML = "Add New";
+        }else if(button.innerHTML === "Add New"){
+            button.innerHTML = "Dismiss";
+        }
+
+    };
 </script>
